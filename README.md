@@ -34,6 +34,11 @@ lately we need to set env variable ENABLE_EXPERIMENTAL_COREPACK=1 on vercel
 
 - Error boundary:
   - error.tsx in a folder (Must be a client component). see the example error.tsx for (error, reset)=> params
+- const [state, formAction] = useActionState(createInvoice, initialState);
+
+  - form action={formAction = taps into the server action and updates the state object (with e.g. state.errors)
+
+- NextAuth use: proxy.ts and some config. proxy is a special file, not unlike middleware
 
 ## To study:
 

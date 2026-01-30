@@ -78,9 +78,9 @@ export async function SelfLoadingCard({
     numberOfCustomers,
   } = await cachedFetchCardData();
 
-  await new Promise((resolve) =>
-    setTimeout(resolve, Math.round(Math.random() * 2000))
-  );
+  // await new Promise((resolve) =>
+  //   setTimeout(resolve, Math.round(Math.random() * 2000))
+  // );
   let value = "0";
   switch (type) {
     case "collected":
