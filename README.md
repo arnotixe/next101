@@ -40,6 +40,8 @@ lately we need to set env variable ENABLE_EXPERIMENTAL_COREPACK=1 on vercel
 
 - NextAuth use: proxy.ts and some config. proxy is a special file, not unlike middleware
 
+- const [isPending, startTransition] = useTransition(); (auto updates isPending after action(s) are done)
+
 ## To study:
 
 - data access layer (standardized, strip things and return known interfaces) https://nextjs.org/blog/security-nextjs-server-components-actions
@@ -47,11 +49,14 @@ lately we need to set env variable ENABLE_EXPERIMENTAL_COREPACK=1 on vercel
 
 ## Bugs:
 
-chapter 12, the fetchInvoice throws, but should instead return null (or have try/catch in the component too)
+- chapter 12, the fetchInvoice throws, but should instead return null (or have try/catch in the component too)
 
-    // throw new Error('Failed to fetch invoice.');
-    return null;
+  // throw new Error('Failed to fetch invoice.');
+  return null;
 
 }
 }
 Now that you know the invoice doesn't exist in your database, …
+
+- Chapter 14 proxy.ts or middleware?
+  yes, called proxy in 16+
