@@ -42,6 +42,13 @@ lately we need to set env variable ENABLE_EXPERIMENTAL_COREPACK=1 on vercel
 
 - const [isPending, startTransition] = useTransition(); (auto updates isPending after action(s) are done)
 
+- METADATA templates:
+  export const metadata: Metadata = {
+  title: {
+  template: "%s | Acme Dashboard",
+
+  the %s here will be filled with child Metadata.title
+
 ## To study:
 
 - data access layer (standardized, strip things and return known interfaces) https://nextjs.org/blog/security-nextjs-server-components-actions

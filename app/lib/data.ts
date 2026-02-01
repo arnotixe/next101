@@ -9,6 +9,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { cache } from 'react';
+import { notFound } from 'next/navigation';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -174,6 +175,7 @@ export async function fetchInvoiceById(id: string) {
     console.error('Database Error:', error);
     // throw new Error('Failed to fetch invoice.');
     return null;
+    // return notFound();
   }
 }
 
