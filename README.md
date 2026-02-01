@@ -1,14 +1,36 @@
-## Next.js App Router Course - Starter
+## Caveats:
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+- need to set env ENABLE_EXPERIMENTAL_COREPACK=1 in production
+- need to set env AUTH_SECRET in production
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+### install step - use pnpm not npm
 
-## findings
+https://nextjs.org/learn/dashboard-app/getting-started
 
-lately we need to set env variable ENABLE_EXPERIMENTAL_COREPACK=1 on vercel
+- I had installed with npm, skipping the --use-pnpm part since I didn't have pnpm. Interestingly, that installs next15, not next16 for some reason. That works too, until you get to the proxy.ts (16+) which was middleware.ts in versions before 16
 
-## Arno's notes
+```
+ npx create-next-app@latest nextjs-dashboard --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example"
+ installs next@15
+
+ npx create-next-app@latest nextjs-dashboard --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example" --use-pnpm
+ installs next@16
+```
+
+### throw vs notFound
+
+https://nextjs.org/learn/dashboard-app/error-handling#handling-404-errors-with-the-notfound-function
+
+- chapter 12, the fetchInvoice throws, but should instead return null (or have try/catch in the component too)
+
+  // throw new Error('Failed to fetch invoice.');
+  return null;
+
+}
+}
+Now that you know the invoice doesn't exist in your database, …
+
+## Notes
 
 - image's dimensions (aspect ratio, really)
 - fonts done the right way become part of the bundla
@@ -52,18 +74,4 @@ lately we need to set env variable ENABLE_EXPERIMENTAL_COREPACK=1 on vercel
 ## To study:
 
 - data access layer (standardized, strip things and return known interfaces) https://nextjs.org/blog/security-nextjs-server-components-actions
-  - in other words: only pass to frontend whateven the frontend should see (server side filter)
-
-## Bugs:
-
-- chapter 12, the fetchInvoice throws, but should instead return null (or have try/catch in the component too)
-
-  // throw new Error('Failed to fetch invoice.');
-  return null;
-
-}
-}
-Now that you know the invoice doesn't exist in your database, …
-
-- Chapter 14 proxy.ts or middleware?
-  yes, called proxy in 16+
+  - in other words: only pass to frontend whatever the frontend should see (server side filter)
