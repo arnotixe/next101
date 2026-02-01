@@ -1,7 +1,6 @@
 ## Caveats:
 
-- need to set env ENABLE_EXPERIMENTAL_COREPACK=1 in production
-- need to set env AUTH_SECRET in production
+- need to set env ENABLE_EXPERIMENTAL_COREPACK=1 in production if on next15 (due using npm for install)
 
 ### install step - use pnpm not npm
 
