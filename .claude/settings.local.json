@@ -9,7 +9,8 @@
       "Bash(npm view:*)",
       "Bash(pnpm:*)",
       "Bash(npm exec:*)",
-      "Bash(corepack pnpm:*)"
+      "Bash(corepack pnpm:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }
